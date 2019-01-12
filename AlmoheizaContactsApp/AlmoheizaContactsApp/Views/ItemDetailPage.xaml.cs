@@ -24,7 +24,7 @@ namespace AlmoheizaContactsApp.Views
         {
             InitializeComponent();
 
-            var item = new Item
+            var item = new Contact
             {
                 Text = "Item 1",
                 Description = "This is an item description."

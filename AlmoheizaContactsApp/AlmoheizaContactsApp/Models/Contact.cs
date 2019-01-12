@@ -2,7 +2,7 @@
 
 namespace AlmoheizaContactsApp.Models
 {
-    public class Item
+    public class Contact
     {
         public string Id { get; set; }
         public string Text { get; set; }

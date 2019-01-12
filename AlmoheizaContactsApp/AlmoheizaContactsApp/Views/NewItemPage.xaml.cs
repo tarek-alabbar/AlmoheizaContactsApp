@@ -11,13 +11,13 @@ namespace AlmoheizaContactsApp.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class NewItemPage : ContentPage
     {
-        public Item Item { get; set; }
+        public Contact Item { get; set; }
 
         public NewItemPage()
         {
             InitializeComponent();
 
-            Item = new Item
+            Item = new Contact
             {
                 Text = "Item name",
                 Description = "This is an item description."
