@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 
-using AlmoheizaContactsApp.Models;
+
 using AlmoheizaContactsApp.Views;
 using AlmoheizaContactsApp.Services;
 
@@ -25,9 +25,9 @@ namespace AlmoheizaContactsApp.ViewModels
             Items = new ObservableCollection<ContactItem>();
             LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
 
-            /*MessagingCenter.Subscribe<NewItemPage, Contact>(this, "AddItem", async (obj, item) =>
+            /*MessagingCenter.Subscribe<NewItemPage, ContactItem>(this, "AddItem", async (obj, item) =>
             {
-                var newItem = item as Contac;
+                var newItem = item as ContactItem;
                 Items.Add(newItem);
                 await DataStore.AddItemAsync(newItem);
             });*/
@@ -42,8 +42,7 @@ namespace AlmoheizaContactsApp.ViewModels
 
             try
             {
-                //Items.Clear();
-                //var items = await DataStore.GetItemsAsync(true);
+                Items.Clear();
                 var items = await contactItemManager.GetContactItemsAsync(true);
                 foreach (var item in items)
                 {

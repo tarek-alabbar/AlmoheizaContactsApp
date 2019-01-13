@@ -4,23 +4,23 @@ using System.Collections.Generic;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-using AlmoheizaContactsApp.Models;
+using AlmoheizaContactsApp.Services;
 
 namespace AlmoheizaContactsApp.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class NewItemPage : ContentPage
     {
-        public Contact Item { get; set; }
+        public ContactItem Item { get; set; }
 
         public NewItemPage()
         {
             InitializeComponent();
 
-            Item = new Contact
+            Item = new ContactItem
             {
-                Text = "Item name",
-                Description = "This is an item description."
+                Name = "Item name",
+                Email = "This is an item email."
             };
 
             BindingContext = this;

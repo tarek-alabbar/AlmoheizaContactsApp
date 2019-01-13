@@ -7,10 +7,11 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-using AlmoheizaContactsApp.Models;
+
 using AlmoheizaContactsApp.Views;
 using AlmoheizaContactsApp.ViewModels;
 using AlmoheizaContactsApp.Services;
+
 
 namespace AlmoheizaContactsApp.Views
 {
@@ -28,13 +29,13 @@ namespace AlmoheizaContactsApp.Views
 
         async void OnItemSelected(object sender, SelectedItemChangedEventArgs args)
         {
-            var item = args.SelectedItem as Contact;
+            var item = args.SelectedItem as ContactItem;
             if (item == null)
                 return;
 
             await Navigation.PushAsync(new ItemDetailPage(new ItemDetailViewModel(item)));
 
-            // Manually deselect item.
+            //Manually deselect item.
             ItemsListView.SelectedItem = null;
         }
 

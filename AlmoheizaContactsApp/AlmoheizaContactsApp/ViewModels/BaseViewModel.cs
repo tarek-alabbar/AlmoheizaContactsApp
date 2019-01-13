@@ -5,14 +5,14 @@ using System.Runtime.CompilerServices;
 
 using Xamarin.Forms;
 
-using AlmoheizaContactsApp.Models;
+
 using AlmoheizaContactsApp.Services;
 
 namespace AlmoheizaContactsApp.ViewModels
 {
     public class BaseViewModel : INotifyPropertyChanged
     {
-        public IDataStore<Contact> DataStore => DependencyService.Get<IDataStore<Contact>>() ?? new MockDataStore();
+        
 
         bool isBusy = false;
         public bool IsBusy

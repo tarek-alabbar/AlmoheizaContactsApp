@@ -1,15 +1,15 @@
 ﻿using System;
 
-using AlmoheizaContactsApp.Models;
+using AlmoheizaContactsApp.Services;
 
 namespace AlmoheizaContactsApp.ViewModels
 {
     public class ItemDetailViewModel : BaseViewModel
     {
-        public Contact Item { get; set; }
-        public ItemDetailViewModel(Contact item = null)
+        public ContactItem Item { get; set; }
+        public ItemDetailViewModel(ContactItem item = null)
         {
-            Title = item?.Text;
+            Title = item?.Name;
             Item = item;
         }
     }

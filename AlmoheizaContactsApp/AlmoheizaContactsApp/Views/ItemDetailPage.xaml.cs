@@ -3,7 +3,7 @@
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-using AlmoheizaContactsApp.Models;
+using AlmoheizaContactsApp.Services;
 using AlmoheizaContactsApp.ViewModels;
 
 namespace AlmoheizaContactsApp.Views
@@ -24,10 +24,10 @@ namespace AlmoheizaContactsApp.Views
         {
             InitializeComponent();
 
-            var item = new Contact
+            var item = new ContactItem
             {
-                Text = "Item 1",
-                Description = "This is an item description."
+                Name = "Item 1",
+                Email = "This is an item description."
             };
 
             viewModel = new ItemDetailViewModel(item);
