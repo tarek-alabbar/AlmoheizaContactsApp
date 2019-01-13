@@ -17,8 +17,6 @@ namespace AlmoheizaContactsApp.Services
             set { id = value; }
         }
 
-        [JsonProperty(PropertyName = "test")]
-        public string Test { get; set; }
 
         [JsonProperty(PropertyName = "name")]
         public string Name
@@ -62,5 +60,8 @@ namespace AlmoheizaContactsApp.Services
             get { return sons; }
             set { sons = value; }
         }
+
+        [Version]
+        public string Version { get; set; }
     }
 }

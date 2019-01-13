@@ -10,6 +10,7 @@ using Xamarin.Forms.Xaml;
 using AlmoheizaContactsApp.Models;
 using AlmoheizaContactsApp.Views;
 using AlmoheizaContactsApp.ViewModels;
+using AlmoheizaContactsApp.Services;
 
 namespace AlmoheizaContactsApp.Views
 {
@@ -46,7 +47,7 @@ namespace AlmoheizaContactsApp.Views
         {
             base.OnAppearing();
 
-            if (viewModel.Items.Count == 0)
+            //if (viewModel.Items.Count == 0)
                 viewModel.LoadItemsCommand.Execute(null);
         }
     }
