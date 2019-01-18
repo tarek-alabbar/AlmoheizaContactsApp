@@ -8,7 +8,13 @@ namespace AlmoheizaContactsApp.Services
 {
     public class ContactItem
     {
-        string id, name, city, job, number, email, sons;
+        string id;
+        string name;
+        string city; 
+        string job;
+        string number;
+        string email;
+        string sons;
 
         [JsonProperty(PropertyName = "id")]
         public string Id

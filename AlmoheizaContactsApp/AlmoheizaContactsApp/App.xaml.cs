@@ -13,8 +13,8 @@ namespace AlmoheizaContactsApp
         {
             InitializeComponent();
 
-
-            MainPage = new MainPage();
+            MainPage = new ContactsListViewPage();
+            
         }
 
         protected override void OnStart()

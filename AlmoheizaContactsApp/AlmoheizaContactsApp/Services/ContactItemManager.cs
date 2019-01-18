@@ -13,14 +13,14 @@ namespace AlmoheizaContactsApp.Services
     {
         static ContactItemManager defaultInstance = new ContactItemManager();
         MobileServiceClient client;
-        IMobileServiceTable<ContactItem> contactsTable;
+        IMobileServiceTable<ContactItem> ContactsTable;
 
         const string offlineDbPath = @"localstore.db";
 
         private ContactItemManager()
         {
             this.client = new MobileServiceClient(Connection.AppURL);
-            this.contactsTable = client.GetTable<ContactItem>();
+            this.ContactsTable = client.GetTable<ContactItem>();
 
         }
 
@@ -30,7 +30,7 @@ namespace AlmoheizaContactsApp.Services
             {
                 return defaultInstance;
             }
-            set
+            private set
             {
                 defaultInstance = value;
             }
@@ -43,14 +43,14 @@ namespace AlmoheizaContactsApp.Services
 
         public bool IsOfflineEnabled
         {
-            get { return contactsTable is Microsoft.WindowsAzure.MobileServices.Sync.IMobileServiceSyncTable<ContactItem>; }
+            get { return ContactsTable is Microsoft.WindowsAzure.MobileServices.Sync.IMobileServiceSyncTable<ContactItem>; }
         }
 
         public async Task<ObservableCollection<ContactItem>> GetContactItemsAsync(bool syncItem = false)
         {
             try
             {
-                IEnumerable<ContactItem> items = await contactsTable.Where(ContactItem => ContactItem.Name == "teadog").ToEnumerableAsync();
+                IEnumerable<ContactItem> items = await ContactsTable.Where(ContactItem => ContactItem.Email == "testemail").ToEnumerableAsync();
                 return new ObservableCollection<ContactItem>(items);
             }
             catch (MobileServiceInvalidOperationException msioe)
@@ -70,11 +70,11 @@ namespace AlmoheizaContactsApp.Services
             {
                 if (item.Id == null)
                 {
-                    await contactsTable.InsertAsync(item);
+                    await ContactsTable.InsertAsync(item);
                 }
                 else
                 {
-                    await contactsTable.UpdateAsync(item);
+                    await ContactsTable.UpdateAsync(item);
                 }
             }
             catch (Exception e)
