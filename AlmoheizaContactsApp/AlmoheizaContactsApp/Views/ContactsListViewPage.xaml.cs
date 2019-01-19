@@ -56,6 +56,7 @@ namespace AlmoheizaContactsApp.Views
             try
             {
                 await RefreshItems(false, true);
+                
             }
             catch (Exception ex)
             {
@@ -91,6 +92,7 @@ namespace AlmoheizaContactsApp.Views
 
         private async Task RefreshItems(bool showActivityIndicator, bool syncItems)
         {
+            ContactsList.ItemsSource = await manager.GetContactItemsAsync(syncItems);
             using (var scope = new ActivityIndicatorScope(syncIndicator, showActivityIndicator))
             {
                 ContactsList.ItemsSource = await manager.GetContactItemsAsync(syncItems);
