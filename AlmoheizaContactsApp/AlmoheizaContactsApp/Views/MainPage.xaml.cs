@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using AlmoheizaContactsApp.Services;
 
 namespace AlmoheizaContactsApp.Views
 {
@@ -15,6 +16,12 @@ namespace AlmoheizaContactsApp.Views
 		public MainPage ()
 		{
 			InitializeComponent ();
-		}
-	}
+        }
+
+        private async void Search_Button_Clicked(object sender, EventArgs e)
+        {
+            ContactItemManager.DefaultManager.setSerachkey("Email", searchNameEntry.Text);
+            await Navigation.PushModalAsync(new ContactsListViewPage());
+        }
+    }
 }

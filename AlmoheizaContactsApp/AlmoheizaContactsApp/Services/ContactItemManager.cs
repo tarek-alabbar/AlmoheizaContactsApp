@@ -15,6 +15,18 @@ namespace AlmoheizaContactsApp.Services
         MobileServiceClient client;
         IMobileServiceTable<ContactItem> ContactsTable;
 
+        public void setSerachkey(string category, string key)
+        {
+            serachCategory = category;
+            searchKey = key;
+
+        }
+
+        string searchKey;
+        string serachCategory;
+
+       
+
         const string offlineDbPath = @"localstore.db";
 
         private ContactItemManager()
@@ -50,8 +62,19 @@ namespace AlmoheizaContactsApp.Services
         {
             try
             {
-                IEnumerable<ContactItem> items = await ContactsTable.Where(ContactItem => ContactItem.Email == "testemail").ToEnumerableAsync();
-                return new ObservableCollection<ContactItem>(items);
+                if (serachCategory == "Name")
+                {
+                        IEnumerable<ContactItem> items = await ContactsTable.Where(ContactItem => ContactItem.Name == searchKey).ToEnumerableAsync();
+                        return new ObservableCollection<ContactItem>(items);
+                }
+                else if (serachCategory == "Email")
+                {
+                    IEnumerable<ContactItem> items = await ContactsTable.Where(ContactItem => ContactItem.Email == searchKey).ToEnumerableAsync();
+                    return new ObservableCollection<ContactItem>(items);
+                }
+
+                //IEnumerable<ContactItem> items = await ContactsTable.Where(ContactItem => ContactItem.Name == searchKey).ToEnumerableAsync();
+                //return new ObservableCollection<ContactItem>(items);
             }
             catch (MobileServiceInvalidOperationException msioe)
             {

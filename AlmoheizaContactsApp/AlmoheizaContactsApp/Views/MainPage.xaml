@@ -2,11 +2,17 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AlmoheizaContactsApp.Views.MainPage">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Hello There"/>
+    </ContentPage.ToolbarItems>
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+        <StackLayout VerticalOptions="StartAndExpand">
+            <Label Text="Search by Name" />
+            <Entry x:Name="searchNameEntry" Placeholder="Enter a name..." />
+            <Label Text="Search by Job" />
+            <Entry x:Name="searchJobEntry" Placeholder="Enter a job..." />
+            <Button Text="Search" Clicked="Search_Button_Clicked"/>
+            <Label x:Name="messageLabel" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
