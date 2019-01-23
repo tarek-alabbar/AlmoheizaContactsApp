@@ -20,7 +20,7 @@ namespace AlmoheizaContactsApp.Views
 
         private async void Search_Button_Clicked(object sender, EventArgs e)
         {
-            ContactItemManager.DefaultManager.setSerachkey("Email", searchNameEntry.Text);
+            ContactItemManager.DefaultManager.SetSerachkey("Email", searchNameEntry.Text);
             await Navigation.PushModalAsync(new ContactsListViewPage());
         }
     }

@@ -15,7 +15,7 @@ namespace AlmoheizaContactsApp.Services
         MobileServiceClient client;
         IMobileServiceTable<ContactItem> ContactsTable;
 
-        public void setSerachkey(string category, string key)
+        public void SetSerachkey(string category, string key)
         {
             serachCategory = category;
             searchKey = key;
