@@ -6,12 +6,12 @@
              Padding="20">
     <ContentPage.Content>
         <StackLayout Spacing="20" Padding="50" VerticalOptions="Center">
+            <Picker x:Name="categoryPicker"
+                    SelectedIndexChanged="Picker_SelectedIndexChanged">
+            </Picker>
             <Label Text="Search by Name" />
             <Entry x:Name="searchNameEntry" Placeholder="Enter a name..." />
-            <Label Text="Search by Job" />
-            <Entry x:Name="searchJobEntry" Placeholder="Enter a job..." />
             <Button Text="Search" Clicked="Search_Button_Clicked"/>
-            <Label x:Name="messageLabel" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

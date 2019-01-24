@@ -15,7 +15,7 @@ namespace AlmoheizaContactsApp.Services
         MobileServiceClient client;
         IMobileServiceTable<ContactItem> ContactsTable;
 
-        public void SetSerachkey(string category, string key)
+        public void SetSerachkey(int category, string key)
         {
             serachCategory = category;
             searchKey = key;
@@ -23,7 +23,7 @@ namespace AlmoheizaContactsApp.Services
         }
 
         string searchKey;
-        string serachCategory;
+        int serachCategory;
 
        
 
@@ -62,14 +62,14 @@ namespace AlmoheizaContactsApp.Services
         {
             try
             {
-                if (serachCategory == "Name")
+                if (serachCategory == 0)
                 {
                         IEnumerable<ContactItem> items = await ContactsTable.Where(ContactItem => ContactItem.Name == searchKey).ToEnumerableAsync();
                         return new ObservableCollection<ContactItem>(items);
                 }
-                else if (serachCategory == "Email")
+                else if (serachCategory == 1)
                 {
-                    IEnumerable<ContactItem> items = await ContactsTable.Where(ContactItem => ContactItem.Email == searchKey).ToEnumerableAsync();
+                    IEnumerable<ContactItem> items = await ContactsTable.Where(ContactItem => ContactItem.Job == searchKey).ToEnumerableAsync();
                     return new ObservableCollection<ContactItem>(items);
                 }
 
