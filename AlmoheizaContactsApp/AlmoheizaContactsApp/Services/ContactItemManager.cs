@@ -64,12 +64,12 @@ namespace AlmoheizaContactsApp.Services
             {
                 if (serachCategory == 0)
                 {
-                        IEnumerable<ContactItem> items = await ContactsTable.Where(ContactItem => ContactItem.Name == searchKey).ToEnumerableAsync();
+                        IEnumerable<ContactItem> items = await ContactsTable.Where(ContactItem => ContactItem.Name.Contains(searchKey)).ToEnumerableAsync();
                         return new ObservableCollection<ContactItem>(items);
                 }
                 else if (serachCategory == 1)
                 {
-                    IEnumerable<ContactItem> items = await ContactsTable.Where(ContactItem => ContactItem.Job == searchKey).ToEnumerableAsync();
+                    IEnumerable<ContactItem> items = await ContactsTable.Where(ContactItem => ContactItem.Job.Contains(searchKey)).ToEnumerableAsync();
                     return new ObservableCollection<ContactItem>(items);
                 }
 
